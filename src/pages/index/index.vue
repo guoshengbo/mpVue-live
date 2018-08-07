@@ -15,8 +15,8 @@
     </div>
 
     <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
+    <div v-for="(item, index) in data" :key="index"></div>
+     {{item}}
     </form>
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
   </div>
@@ -28,7 +28,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello World',
+      data: [],
       userInfo: {}
     }
   },
@@ -58,7 +58,11 @@ export default {
       console.log('clickHandle:', msg, ev)
     }
   },
-
+  mounted () {
+    this.$fly.get('/api/RoomApi/live').then(function (res) {
+      this.data = res.data
+    })
+  },
   created () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()

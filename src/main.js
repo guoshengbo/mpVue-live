@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App'
+import fly from './utils/request.js'
 
 Vue.config.productionTip = false
+Vue.prototype.$fly = fly
 App.mpType = 'app'
 
 const app = new Vue(App)
@@ -15,7 +17,7 @@ export default {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: 'gsbTV',
       navigationBarTextStyle: 'black'
     }
   }
