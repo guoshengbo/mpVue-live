@@ -1,34 +1,33 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
-
-    <div class="userinfo" @click="bindViewTap">
+  <!-- <div class="container" @click="clickHandle('test click', $event)"> -->
+  <div>
+    <!-- <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
         <card :text="userInfo.nickName"></card>
       </div>
-    </div>
+    </div> -->
 
-    <div class="usermotto">
+    <!-- <div class="usermotto">
       <div class="user-motto">
         <card :text="motto"></card>
       </div>
+    </div> -->
+    <div v-for="(item, index) in RoomApi" :key="index">
+      <a @click="setItem()" href="/pages/counter/main" class="counter">{{item?item.nickname:''}}</a>
     </div>
-
-    <form class="form-container">
-    <div v-for="(item, index) in data" :key="index"></div>
-     {{item}}
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
+import store from '../../store/index'
 
 export default {
   data () {
     return {
-      data: [],
+      RoomApi: [],
       userInfo: {}
     }
   },
@@ -38,6 +37,9 @@ export default {
   },
 
   methods: {
+    setItem () {
+      store.commit('setInof')
+    },
     bindViewTap () {
       const url = '../logs/main'
       wx.navigateTo({ url })
@@ -59,8 +61,11 @@ export default {
     }
   },
   mounted () {
+    let self = this
     this.$fly.get('/api/RoomApi/live').then(function (res) {
-      this.data = res.data
+      console.log('data', res.data.data)
+      self.RoomApi = res.data.data
+      console.log('self.RoomApi', self.RoomApi)
     })
   },
   created () {
@@ -69,41 +74,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
-</style>
