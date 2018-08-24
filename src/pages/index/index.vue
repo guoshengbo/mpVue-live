@@ -62,10 +62,10 @@ export default {
   },
   mounted () {
     let self = this
-    this.$fly.get('/api/RoomApi/live').then(function (res) {
-      console.log('data', res.data.data)
-      self.RoomApi = res.data.data
-      console.log('self.RoomApi', self.RoomApi)
+    this.$fly.get('/api/room/list?type=&page=1').then(function (res) {
+      // console.log('data', res.data.data)
+      self.RoomApi = res.data.data.list
+      // console.log('self.RoomApi', self.RoomApi)
     })
   },
   created () {

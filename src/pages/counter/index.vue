@@ -7,7 +7,7 @@
    bindstatechange="statechange"
    binderror="error" 
    style="width: 50px; height: 30px;" />  -->
-  <video src="http://hls3.douyucdn.cn/live/288016rlols5_900/playlist.m3u8?wsSecret=ae5141b043211961d5bc1dc564f5fb8a&wsTime=1533719547&token=cpn-androidmpro-0-288016-67e0556a4d274e87dcb8d284b89bb5a8&did=48fef8f4390cfb6b8ad2244e000715q1">
+  <video src="http://hls3a.douyucdn.cn/live/3458160rQVczy0k3_900/playlist.m3u8?wsSecret=318d73ff3e72541d793a67bf6bd1ba07&wsTime=1533805680&token=cpn-androidmpro-0-3458160-46dfcfe9e8d5f4c35bb90fd6fa16f62d&did=cb1aacf558d70176da3c7e69000815q1">
     <!-- <cover-view class="voice-cover">
       <cover-image class="voice-img" src="https://cs-op.douyucdn.cn/dyfelocal/act/5acc7c96d51caa4669f8b2de/audio-live-cover.png?timestamp=1530193807"></cover-image>
     </cover-view> -->

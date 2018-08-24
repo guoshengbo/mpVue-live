@@ -8,6 +8,6 @@ fly.interceptors.request.use((config, promise) => {
   return config
 })
 // 配置请求基地址
-fly.config.baseURL = 'http://open.douyucdn.cn/'
+fly.config.baseURL = 'https://wxapp.douyucdn.cn'
 
 export default fly
